@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>M-TEST</title>
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/angular-drag-and-drop-lists.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/ui-bootstrap-tpls-2.1.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/angular-cookies.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/sticky.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <script type="text/javascript" src="{% static 'js/controller.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/pdffactory.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/dbfactory.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/datafactory.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/submitdata.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/mathfactory.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/modalfactory.js' %}"></script>
+    
+    
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  	<link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <base href="/"> 
+</head>
+<body ng-app="mTestApp" ng-controller="mTestController as $ctrl">
+
+    <div class="container">
+      <header>
+              <div id="logo"><a href="/"><h1>M-TECT</h1></a></div>
+
+      </header>
+      <div id='nav'>
+        <a class="btn btn-default" type="button" ng-click="openModal('lg','HelpModal.html','mTestController')">Як користуватись?</a>
+        <a class="btn btn-default" href="http://commerciallaw.com.ua/attachments/article/517/CLC_M-Test_web_01.pdf" target="_blank">Посібник по М-ТЕСТу</a>
+        <a class="btn btn-default" href="static/files/reference_information.pdf" target="_blank">Довідкова інформація</a>
+      </div>
+      <div class="mTest row" ng-view></div>
+      
+    </div>
+    <footer class="site-footer">
+
+      <div style='width: 1170px;margin:0 auto;text-align:center'>
+  <a href='mailto:clc@clc.com.ua?Subject=MTEST'>Написати розробнику</a>&nbsp;|&nbsp;
+  <a href='http://commerciallaw.com.ua'>БО 'ЦКП' &copy; 2016</a> |&nbsp;
+  <a href='mailto:mtest@clc.com.ua?Subject=MTEST'>Задати запитання щодо М-Тесту</a>
+</div>
+</footer>
+</body>
+</html>

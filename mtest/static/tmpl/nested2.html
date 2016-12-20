@@ -1,0 +1,253 @@
+                                                                            <!--  MAIN DROPZONE  -->
+<script type="text/ng-template" id="list.html" >
+    <ul dnd-list="list" >
+        <li ng-repeat="item in list" 
+            dnd-draggable="item"
+            dnd-effect-allowed="move"
+            dnd-moved="list.splice($index, 1)"
+            dnd-selected="modelsdb.selected = item"
+            dnd-allowed-types='itemplus' 
+            ng-class="{selected: modelsdb
+                .selected === item}"
+            ng-include="item.type + '.html'" 
+            class="ng-scope"
+            id="{[{ item.type }]}"
+            >
+        </li>
+        <li class="dndPlaceholder">Перетяніть сюди</li>
+    </ul>
+</script>
+
+                                                                            <!--  ITEM  -->
+<script type="text/ng-template" id="item.html">
+    <dnd-nodrag>
+    <div dnd-handle class="handle">:::</div>
+        <div class="item" style="display:none;">{[{item.id}]}</div>
+        <div class="input_group">
+        <div class="input_one">
+                    <div class="col-md-12 floatleft">
+                        <input class="form-control ng-valid ng-dirty" ng-model="item.pos" name="pos" placeholder="Оберіть тип працівника"
+                        uib-typeahead="posada for posada in posady | filter:$viewValue | limitTo:12" typeahead-min-length="0">
+                        </input>
+                    </div>
+                    <div class="col-md-12 floatleft">
+                        <input class="form-control ng-valid ng-dirty" ng-model="item.proc" name="proc" placeholder="Оберіть дію"
+                            uib-typeahead="dia for dia in dii | filter:$viewValue | limitTo:15" typeahead-min-length="0">
+                        </input>
+                    </div>
+                    
+                </div>
+                <div class="input_two">
+                    <div class="input_right">
+                    <div class="col-md-6 floatleft" style="padding-right: 8px;">
+                        <input type="number" class="form-control ng-valid ng-dirty" name="pvri" ng-model="item.pvri" placeholder='ПВРі (грн)'
+                        title="Прямі витрати суб’єкта мікро- та малого бізнесу">
+                        </input>
+                    </div>
+                    <div class="col-md-6 floatleft" style="padding-left: 8px;">
+                        <input type="number" class="form-control ng-valid ng-dirty" name="kri" ng-model="item.kri" placeholder='КРі (раз)' 
+                        title="Кількість разів виконання процедур регулювання за рік">
+                        </input>
+                    </div>
+                    </div>
+                    <div class="input_right">
+                    <div class="col-md-6 floatleft" style="padding-right: 8px;">
+                        <input type="number" class="form-control ng-valid ng-dirty" name="chi" ng-model="item.chi" placeholder="Чі (год)"
+                        title="Час, необхідний для виконання даної проедури">
+                        </input>
+                    </div>
+                    <div class="col-md-6 floatleft" style="padding-left: 8px;">
+                        <input type="number" class="form-control ng-valid ng-dirty" name="vchi" ng-model="item.vchi" placeholder="ВЧі (грн)"
+                        title="Кошти витрачені на виконання даної процедури">
+                        </input>
+                    </div>
+                    </div>
+                </div>
+
+                
+                <div class="sum_hidden" ng-model="item.subsum"> {[{ item.subsum = item.chi * item.vchi * item.kri + item.pvri }]}</div>
+            </div>
+        </dnd-nodrag>
+</script>
+                                                                            <!--  ITEM WITH CONTAINER  -->
+<script type="text/ng-template" id="itemplus.html" >
+    <div class="container-element box box-blue" style='padding-top: 10px;'>
+        <div id='header-sub'>
+            <div dnd-handle ng-click="isCollapsed = !isCollapsed"  class="handle_plus floatleft" >:::</div>
+            <div class="col-md-7 floatleft">
+                <input  class="form-control ng-valid ng-dirty" ng-model="item.zob" name="zob" uib-typeahead="zobov for zobov in zobovyazannya | filter:$viewValue | limitTo:8"
+                placeholder="Оберіть інформаційне зобов’язання" typeahead-min-length="0"></input>
+            </div>
+        </div>
+        <div uib-collapse="isCollapsed">
+            <div class="column" ng-repeat="list in item.columns" ng-include="'list.html'" ></div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</script>
+                                                                            <!--  CONTAINER  -->
+<script type="text/ng-template" id="container.html">
+    <div class="container-element box box-blue" style='padding-top: 10px;'>
+        <div id='header-sub'>
+            <div dnd-handle ng-click="isCollapsed = !isCollapsed"  class="handle floatleft" >:::</div>
+            <div class="col-md-7 floatleft">
+                <input  class="form-control ng-valid ng-dirty" ng-model="item.zob" name="zob" uib-typeahead="zobov for zobov in zobovyazannya | filter:$viewValue | limitTo:8"
+                placeholder="Оберіть інформаційне зобов’язання" typeahead-min-length="0"></input>
+            </div>
+            <h3 style='float:right' class='col-md-3' ng-model="item.subS" > Витрати: {[{SumDb(item.id)[item.id]}]} грн</h3>
+        </div>
+        <div uib-collapse="isCollapsed">
+            <div class="column" ng-repeat="list in item.columns" ng-include="'list.html'" ></div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="EmailModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Надіслати форму третій особі</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+                <form method="POST" class="post-form" name="emailform">
+                <div class="form-group">
+                    <div class="input-group">
+                            <div class="input-group-addon">Ваше імя*</div>
+                            <input name= "author" class="form-control" ng-model="eauthor"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Ваш email*</div>
+                        <input name="email" class="form-control" type="text" ng-model="eemail"/> 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Email отримувача*</div>
+                        <input name="emailfor" class="form-control" type="text" ng-model="eemailfor"/> 
+                    </div>
+                </div>
+                <div style='text-align:center;width:100%'>
+                    <h4>Посилання для редагування:</h4>
+                    <h4><code><a href='{[{ getUrlData() }]}'>{[{ getUrlData() }]}</a></code></h4>
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" name="submitform" ng-click="sendEmail($event)">Надіслати</button>
+            </form> 
+            </div>
+    </script>
+
+
+<script type="text/ng-template" id="HelpModal.html">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Інструкція</h3>
+            </div>
+            <div class="modal-body" id="modal-body">
+            <p>1) Додайде зобов’язання, перетянувши його в основне поле</p>
+            <p>2) Додайде дію, перетянувши її в поле зобов’язання</p>
+            <p>3) Уважно заповніть кожне поле</p>
+            <p>Ви можете видалити поле перетянувши його на іконку корзити</p>
+            <p>Ви можете завантажити результат обчислень, натиснувши відповідну кнопку</p>
+            <p>Кі &ndash; кількість суб&rsquo;єктів мікро- та малого бізнесу, на які поширюється регулювання&nbsp;(окремо за кожним видом);</p>
+            <p>Чі &ndash; час, необхідний відповідному суб&rsquo;єкту мікро- та малого бізнесу, на який поширюється регулювання (окремо за кожним видом) для виконання процедур регулювання &ndash;&nbsp;окремо за кожною процедурою (оціночно або статистично) (можливим є розрахунок за&nbsp;групами часових витрат &laquo;спеціаліст &ndash; керівник&raquo; у людино-годинах);</p>
+            <p>ВЧі &ndash; заробітна плата однієї години відповідної групи (&laquo;спеціаліст &ndash; керівник&raquo;)суб&rsquo;єкта мікро- та малого бізнесу, на який поширюється регулювання (окремо за кожною групою і за кожним видом), або для ФОПів &ndash; розрахунок вартості людино-години на основі річного обсягу реалізації сектору;</p>
+            <p>КРі &ndash; кількість разів виконання процедур регулювання за рік;</p>
+            <p>ПВРі &ndash; прямі витрати суб&rsquo;єкта мікро- та малого бізнесу, на який поширюється регулювання (окремо за кожним видом) на дотримання вимог регулювання;</p>
+            </div>
+            <div class="modal-footer">
+         
+            </div>
+    </script>
+
+
+                                                                            <!--  CENTRAL BLOCK  -->
+<div class="col-md-9"  id="exportthis" style="width: 81%; position:relative">
+    <div class="row">
+        
+        <div ng-repeat="(zone, list) in modelsdb.dropzones" class="col-md-12" >
+            <div class="dropzone box box-darkblue">
+                <h3 class='sum-header'><div style='float:left'>Загальні витрати:</div>
+                    <div class="col-md-1 input-group">
+                        <input type="number" class="form-control ng-valid ng-dirty" name="ki" ng-model="list[0].ki" placeholder='Кі (шт.)'
+                        title="Кількість суб’єктів мікро- та малого бізнесу">
+                        <div class='input-group-addon' style="width: 100px;">{[{totalSumDb()}]} грн</div>
+                    </div>
+                </h3>
+                <div class='requlatory'>
+                    <div class="col-md-6 floatleft">
+                        <input type="text" class="form-control ng-valid ng-dirty" name="subj" ng-model="list[0].subj" placeholder="Назва органу влади">
+                    </div>
+                    <div class="col-md-6 floatleft">
+                        <input type="text" class="form-control ng-valid ng-dirty" name="regact" ng-model="list[0].regact" placeholder="Назва регуляторного акту">
+                    </div>
+                </div>
+                <div ng-include="'list.html'" ></div>
+            </div>
+        </div>
+    </div>
+    <div  ng-bind-html="rawHtml"></div>
+</div>
+
+                                                                            <!--  END CENTRAL BLOCK  -->
+                                                                            <!--  LEFT BLOCK  -->
+
+<div class="col-md-3 tools">
+    <div class="tools inner" sticky offset="30">
+        <div class="tools main">
+    <div class="toolbox box box-grey box-padding"> 
+        <ul>
+            <li ng-repeat="item in modelsdb.templates"
+                dnd-draggable="item"
+                dnd-effect-allowed="copy"
+                dnd-copied="item.id = item.id + 1"
+                >
+                <h3>{[{item.name}]}</h3>
+                <div><img src="/static/img/{[{ item.type }]}.png"></div>
+            </li>
+        </ul>
+        <div class='brdr'></div>
+    </div>
+
+    <div class="trashcan box box-grey box-padding">
+        <ul dnd-list="[]">
+   
+            <li><img src="/static/img/trashcan.png"></li>
+        </ul>
+    </div>
+    <div class='brdr'></div>
+
+    <div class='faq'>
+        <div class="buttons">
+            <div class="btn1">
+                <a type="button" id='btn-dwn' class="btn btn-default btn-lg" download="Звіт.html" ng-href="{[{ saveToPdf }]}">
+                    <span class="glyphicon glyphicon-cloud-download"></span>
+                    <span>Завантажити</span>
+                </a>
+            </div>
+            <div class="btn3 {[{ getClass }]}">
+                <form method="POST" class="post-form" name="form">
+                    <button type="submit" id='btn-dwn' class="btn btn-default  btn-lg" name="Save" ng-click="m.submitData($event);m.setClasses()">
+                        <span class="glyphicon glyphicon-floppy-disk"></span>
+                        <span class="sm">Зберегти</span>
+                    </button>
+                </form>
+            </div>
+            <div class="save_alert {[{ getClassTwo }]}">
+                <span class="glyphicon glyphicon-ok-circle"></span>
+                <span class="sm">Збережено!</span>
+            </div>
+            <div class="btn2">
+                <form method="POST" class="post-form" name="form">
+                    <button type="submit" id='btn-save' class="btn btn-default  btn-lg" name="Save" ng-click="m.openModal('col-sm-9','EmailModal.html','mTestController');m.submitData($event)">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                        <span class="sm">Надіслати</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    {[{ contnum }]}
+</div>
+                                                                <!--  END CENTRAL BLOCK  -->

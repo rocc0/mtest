@@ -1,0 +1,679 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=cyrillic');
+
+/***************************** Required styles *****************************/
+
+/**
+ * For the correct positioning of the placeholder element, the dnd-list and
+ * it's children must have position: relative
+ */
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    padding-bottom: 30px;
+    background-image: url(../img/bg.png);
+}
+.container {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: 10px; 
+}
+.container:after {
+  content: "";
+  display: block;
+}
+.site-footer, .container:after {
+  height: 20px; 
+}
+.site-footer {
+    color:white;
+      background: linear-gradient(to right, #7fc9f1, #fcc135);
+}
+.site-footer a {
+    color:white;
+}
+
+.mTest ul[dnd-list],
+.mTest ul[dnd-list] > li {
+	position: relative;
+}
+
+/***************************** Dropzone Styling *****************************/
+
+/**
+ * The dnd-list should always have a min-height,
+ * otherwise you can't drop to it once it's empty
+ */
+.mTest .dropzone ul[dnd-list] {
+    min-height: 42px;
+    margin: 0px;
+    padding-left: 0px;
+    padding-bottom: 25px;
+}
+
+/**
+ * The dnd-lists's child elements currently MUST have
+ * position: relative. Otherwise we can not determine
+ * whether the mouse pointer is in the upper or lower
+ * half of the element we are dragging over. In other
+ * browsers we can use event.offsetY for this.
+ */
+.mTest .dropzone li {
+       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: block;
+    padding: 0px;
+    margin: 5px auto;
+}
+
+/**
+ * Reduce opacity of elements during the drag operation. This allows the user
+ * to see where he is dropping his element, even if the element is huge. The
+ * .dndDragging class is automatically set during the drag operation.
+ */
+.mTest .dropzone .dndDragging {
+    opacity: 0.7;
+}
+
+/**
+ * The dndDraggingSource class will be applied to the source element of a drag
+ * operation. It makes sense to hide it to give the user the feeling that he's
+ * actually moving it. Note that the source element has also .dndDragging class.
+ */
+.mTest .dropzone .dndDraggingSource {
+    display: none;
+}
+
+/**
+ * An element with .dndPlaceholder class will be added as child of the dnd-list
+ * while the user is dragging over it.
+ */
+.mTest .dropzone .dndPlaceholder {
+    box-shadow: none;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+/*    background-image: -webkit-linear-gradient(#efac36 0, #e9d678 100%);
+    background-image: linear-gradient(#efac36, #e9d678);*/
+    min-height: 42px;
+    display: block;
+    position: relative;
+}
+.mTest .dropzone .in.collapse .dndPlaceholder{
+    box-shadow: none;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+/*    background-image: -webkit-linear-gradient(#efac36 0, #e9d678 100%);
+    background-image: linear-gradient(#efac36, #e9d678);*/
+    min-height: 42px;
+    display: block;
+    position: relative;
+}
+
+/***************************** Element Selection *****************************/
+
+.mTest .dropzone .selected .item {
+
+    color: #3c763d;
+    background-color: #dff0d8;
+}
+
+.mTest .dropzone .selected .box {
+    border-color: #d6e9c6;
+}
+
+.mTest .dropzone .selected .box > h3 {
+    color: #3c763d;
+    background-color: #dff0d8;
+    background-image: linear-gradient(to bottom,#dff0d8 0,#d0e9c6 100%);
+    border-color: #d6e9c6;
+}
+
+/***************************** Element type specific styles *****************************/
+
+.mTest .dropzone .item {
+    float: left;
+    padding: 0px;
+}
+
+.mTest .dropzone .container-element {
+    border: none;
+    margin: 0px;
+    background: transparent;
+}
+
+.mTest .dropzone .container-element .column {
+    float: left;
+    width: 100%;
+}
+.mTest .dropzone .container-element li {
+    background-color: #02486f;
+    position: relative;
+    top: 0;
+    cursor: pointer;
+    height: 54px;
+    border-radius: 3px;
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+    color: #888;
+    -webkit-user-select: none;
+    transition: all 0.2s ease;
+    -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.dropzone.box.box-darkblue {
+        padding: 4px;
+}
+.mTest .dropzone li .handle,.mTest .dropzone li .handle_plus {
+
+    cursor: move;
+    font-size: 14px;
+    color: white;
+    line-height: 19px;
+    float: left;
+    margin: 0 6px;
+}
+
+.mTest .dropzone .container-element li .handle {
+    border-right: 1px solid #2d99d5;
+    margin: 0px;
+    height: 54px;
+    padding: 15px 0px 0px 5px;
+    width: 2.3%;
+    cursor: move;
+    line-height: 22px;
+    z-index: 999;
+}
+
+.mTest .dropzone .container-element li .handle_plus  {
+    padding-top: 0px;
+    width: 1%;
+    cursor: move;
+    line-height: 22px;
+    z-index: 999;
+}
+
+.input_group {;
+    float: left;
+    width: 97.66%;
+}
+.input_one {
+    border-right: 1px solid #2d99d5;
+    float: left;
+    padding: 2px 0px;
+
+    width: 63%;
+}
+.input_two {
+    padding: 1px 0px;
+    width: 37%;
+    float: left;
+}
+
+@keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+}
+
+.save_alert {
+    text-align: center;
+    color: white;
+    background: red;
+    font-size: 18px;
+    line-height: 45px;
+    animation-name: example;
+    animation-duration: 4s;
+}
+.disabled {
+    display: none;
+}
+.not_disabled {
+    display: block;
+}
+.input_two .col-md-6 {
+    margin: 1px 0px;
+}
+.col-md-12.floatleft {
+    margin: 1px 0px;
+}
+/***************************** Toolbox *****************************/
+
+.mTest .toolbox ul {
+    list-style: none;
+    padding-left: 0px;
+    cursor: move;
+}
+
+.mTest .toolbox button {
+    margin: 5px;
+    width: 123px;
+    opacity: 1.0;
+}
+
+.mTest .toolbox .dndDragging {
+    opacity: 0.5;
+}
+
+.mTest .toolbox .dndDraggingSource {
+    opacity: 1.0;
+}
+
+/***************************** Trashcan *****************************/
+
+.mTest .trashcan ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.mTest .trashcan img {
+    padding: 0px;
+    border-radius: 25px;
+    -webkit-filter: grayscale(50%);
+    -moz-filter: grayscale(50%);
+    filter: grayscale(50%);
+}
+.mTest .trashcan img:hover {
+    
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+
+
+.mTest .trashcan .dndDragover img {
+    background: #ccc;
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+}
+
+.mTest .trashcan .dndPlaceholder {
+    display: none;
+}
+
+.ng-scope h1 {
+    text-align: left;
+    text-shadow: 2px 2px 0px rgb(131, 200, 234);
+    font-size: 7em;
+    color: #0075b6;
+}
+h3.ng-binding {
+    font-size: 19px;
+    text-shadow: #0075b5 1px 0px, #0075b5 1px 1px, #0075b5 0px 1px, #0075b5 -1px 1px, #0075b5 -1px 0px, #0075b5 -1px -1px, #0075b5 0px -1px, #0075b5 1px -1px;
+    color: #fff;
+    margin: 12px auto;
+}
+
+.box {
+        margin-bottom: 7px;
+}
+
+.box > div > h3 {
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    background-repeat: repeat-x;
+    display: block;
+    font-size: 16px;
+    padding: 4px 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.box-padding {
+    padding: 0px;
+}
+
+.box-padding > h3 {
+    margin: -15px;
+    margin-bottom: 15px;
+}
+
+.box-grey {
+    border-color: #ddd;
+}
+
+.box-grey > h3 {
+    background-color: #f5f5f5;
+    background-image: -webkit-linear-gradient(top,#f5f5f5 0,#e8e8e8 100%);
+    background-image: linear-gradient(to bottom,#f5f5f5 0,#e8e8e8 100%);
+}
+
+.box-blue {
+    border-color: #bce8f1;
+}
+
+.box-blue > div > h3 {
+    text-shadow: none;
+    border-radius: 0px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(24, 134, 205);
+    border-color: rgba(93, 93, 93, 0.79);
+}
+
+div#header-sub {
+    height: 26px;
+}
+
+.box-darkblue {
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(#7fc9f1 0, #ffc132 100%);
+    background-image: linear-gradient(#7fc9f1, #ffc132);
+    
+}
+
+.box-darkblue > h3 {
+    text-shadow: none;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 2px solid #f0b858;
+}
+
+.toolbox.box.box-grey.box-padding {
+    padding-top: 1px;
+}
+
+.tools {
+    padding: 0px 0px;
+    width: 19%;
+    border-radius: 0px 0px 14px 14px;
+    
+}
+.tools.inner {
+    width: 100%;
+    text-align: center;
+    padding: 0px;
+
+}
+.tools.main {
+    width: 100%;
+    text-align: center;
+    padding: 0px;
+    background-image: -webkit-linear-gradient(#7fc9f1 0, #ffc132 100%);
+    background-image: linear-gradient(#7fc9f1, #ffc132);
+    border-radius: 14px 14px 0px 0px;
+}
+/*---------------------------form-------------------------*/
+.col-md-7.floatleft {
+    padding-left: 6px;
+}
+
+label.col-md-2.control-label {
+    line-height: 32px;
+    text-align: left;
+    padding-left: 0px;
+    color: #fff;
+}
+
+select.form-control {
+width: 100%;
+padding: 0 12px;
+}
+
+li.ng-scope {
+    margin-bottom: 15px;
+}
+.horizontal-collapse {
+    height: 70px;
+}
+.navbar-collapse.in {
+    overflow-y: hidden;
+}
+
+
+form.form-horizontal .col-md-9 {
+
+    height: 35px;
+    padding: 0px;
+}
+
+h3.sum-header {
+    height: 45px;
+    padding: 0 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-bottom: 0px;
+    border-radius: 3px;
+    box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
+    font-size: 17px;
+    line-height: 40px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    text-align: right;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.sum-header input.form-control {
+    border-radius: 3px 0px 0px 3px!important;
+    width: 91px;
+
+}
+.sum-header .input-group{
+    float: right;
+    margin-top: 7px;
+    min-width: 171px;
+}
+
+.requlatory {
+    height: 37px;
+}
+
+
+.form-group.col-md-2 {
+    float: right;
+    padding: 0px;
+}
+li.ng-scope img, .trashcan img {
+    padding: 4px;
+    box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(248, 248, 248, 0.39);
+    border-radius: 6px;
+}
+li.ng-scope img:hover, .trashcan img:hover {
+    box-shadow: 0px 4px #f0b858, 0px 10px 15px rgba(0, 0, 0, 0.2);
+}
+.form-horizontal .form-group {
+    margin-right: -15px;
+    margin-left: -5px; 
+}
+.trashcan.box.box-grey.box-padding h3 {
+    font-size: 19px;
+    text-shadow: 1px 1px 0px #cecdcd;
+    color: #fff;
+}
+
+
+
+.toolbox.box.box-grey.box-padding a {
+    position: relative;
+}
+
+.popover {
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    right: 100%;
+    top: 100%;
+    display: block;
+    padding: 0 20px;
+}
+
+.popover span {
+    display: block;
+    font-weight: 700;
+}
+
+#logo {
+    float: left;
+}
+#logo a:hover, #logo a:focus {
+    text-decoration: none;
+}
+#nav {
+    padding-top: 26px;
+    margin: 5px 0px;
+    float: right;
+}
+#sponsors {
+    float: right;
+}
+div#sponsors .logo {
+    margin: 22px 23px 0 23px;
+    float: left;
+}
+span.ng-binding {
+    line-height: 31px;
+    height: 37px;
+    margin-top: -10px;
+    background: #baad6c;
+    margin-right: -15px;
+    padding: 0 5px;
+}
+.allsum.ng-binding {
+    padding: 0 5px;
+    float: right;
+    background: rgba(255, 0, 0, 0.88);
+    margin-right: -10px;
+    height: 36px;
+    margin-top: 4px;
+    line-height: 35px;
+}
+.floatleft {
+    float: left;
+}
+.floatright {
+    float: right;
+}
+div#cont-id {
+    line-height: 22px;
+    text-shadow: none;
+    border-radius: 0px;
+    font-weight: bold;
+    color: #fff;
+    border-color: rgba(93, 93, 93, 0.79);
+}
+.btn1, .btn2 {
+    word-wrap: break-word;
+    width: 100%;
+    float: left;
+}
+.faq {
+        margin: 0px 0px 12px 0px;
+}
+#btn-save {
+    width: 100%;
+    border: 0px;
+    color: white;
+    box-shadow: 0px 2px #66b2dc, 0px 10px 15px rgba(0, 0, 0, 0.2);
+    background-color: #0075b5;
+    border-radius: 0px 0px 14px 14px;
+}
+#btn-dwn {
+    border-radius: 0px 0px 0px 0px;
+    width: 100%;
+    border: 0px;
+    color: white;
+    background-color: #0075b5;
+    border-bottom: 1px solid #fff;
+}
+
+#btn-dwn:hover,#btn-save:hover {
+        background-color: #3ca6ea;
+}
+#btn-dwn:active, #btn-save:active  {
+    background-color: #507f98;
+    box-shadow: 0 1px #6691a8;
+}
+
+@media (min-width: 768px) {
+
+.modal-dialog {
+    width: 959px;
+    margin: 5% auto;
+}
+.modal-body p {
+    line-height: 17px;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+.modal-dialog.modal-sm {
+    width: 335px;
+}
+
+.brdr {
+    height: 3px;
+    width: 100%;
+    background: rgba(24, 134, 205, 0.69);
+    box-shadow: 2px 2px 1px rgba(0, 104, 198, 0.73);
+}
+.uib-typeahead-match.ng-scope{
+height:25px!important;
+}
+.ng-scope ul li input.form-control {
+    padding: 0px 12px;
+    height: 23px;
+}
+ul.dropdown-menu.ng-isolate-scope li {
+    padding: 0px 0px!important;
+    margin: 0px auto!important;
+    border-radius: 0px!important;
+    box-shadow: none!important;
+    background-color: #ffffff!important;
+    width: 100%!important;
+}
+
+a#btn-pos {
+    line-height: 44px;
+    margin-top: 10px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+li#container {
+    background: rgba(127, 126, 120, 0.63);
+}
+
+
+li#itemplus {
+    width: 99%;
+    box-shadow: 0px -2px 0px #e11d1e;
+    background: #ae3c5e!important;
+    height: auto;
+}
+
+li#item {
+    width: 99%;
+}
+
+li#itemplus li#item {
+    width: 100%;
+}
+
+.sum_hidden {
+        display: none;
+}
+div#nav .btn {
+    text-shadow: #0075b5 1px 0px, #0075b5 1px 1px, #0075b5 0px 1px, #0075b5 -1px 1px, #0075b5 -1px 0px, #0075b5 -1px -1px, #0075b5 0px -1px, #0075b5 1px -1px;
+    font-weight: bolder;
+    border: 0px;
+    color: #ffffff;
+    background: transparent;
+    font-size: 23px;
+}
+div#nav .btn:hover {
+
+text-decoration: underline;
+}
