@@ -23,7 +23,9 @@ mTestApp.factory('MathData', function () {
                 subtotal += col[j]['subsum']
               } else {
                 subtotal += 0
-              }}}
+                }
+              }
+            }
             total[itemid] = subtotal;
             subtotal *= 0;
           }

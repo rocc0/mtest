@@ -1,60 +1,63 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&subset=cyrillic');
-
 /***************************** Required styles *****************************/
-
 /**
  * For the correct positioning of the placeholder element, the dnd-list and
  * it's children must have position: relative
  */
+
 * {
-  margin: 0;
+    margin: 0;
 }
-html, body {
-  height: 100%;
+html,
+body {
+    height: 100%;
 }
 body {
     font-family: 'Roboto Condensed', sans-serif;
     padding-bottom: 30px;
-    background-image: url(../img/bg.png);
+    background: rgb(253, 249, 239);
+}
+header {
+    height: 120px;
 }
 .container {
-  min-height: 100%;
-  /* equal to footer height */
-  margin-bottom: 10px; 
+    min-height: 100%;
+    /* equal to footer height */
+    width: 100%;
+    max-width: 1400px;
+    margin-bottom: 10px;
 }
 .container:after {
-  content: "";
-  display: block;
+    content: "";
+    display: block;
 }
-.site-footer, .container:after {
-  height: 20px; 
+.site-footer,
+.container:after {
+    height: 20px;
 }
 .site-footer {
-    color:white;
-      background: linear-gradient(to right, #7fc9f1, #fcc135);
+    color: white;
+    background: linear-gradient(to right, #7fc9f1, #fcc135);
 }
 .site-footer a {
-    color:white;
+    color: white;
 }
-
 .mTest ul[dnd-list],
 .mTest ul[dnd-list] > li {
-	position: relative;
+    position: relative;
 }
-
 /***************************** Dropzone Styling *****************************/
-
 /**
  * The dnd-list should always have a min-height,
  * otherwise you can't drop to it once it's empty
  */
+
 .mTest .dropzone ul[dnd-list] {
     min-height: 42px;
     margin: 0px;
     padding-left: 0px;
     padding-bottom: 25px;
 }
-
 /**
  * The dnd-lists's child elements currently MUST have
  * position: relative. Otherwise we can not determine
@@ -62,93 +65,89 @@ body {
  * half of the element we are dragging over. In other
  * browsers we can use event.offsetY for this.
  */
+
 .mTest .dropzone li {
-       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
     width: 100%;
     background-color: rgba(0, 0, 0, 0.2);
     display: block;
     padding: 0px;
-    margin: 5px auto;
+    margin: 6px auto;
 }
-
 /**
  * Reduce opacity of elements during the drag operation. This allows the user
  * to see where he is dropping his element, even if the element is huge. The
  * .dndDragging class is automatically set during the drag operation.
  */
+
 .mTest .dropzone .dndDragging {
     opacity: 0.7;
 }
-
 /**
  * The dndDraggingSource class will be applied to the source element of a drag
  * operation. It makes sense to hide it to give the user the feeling that he's
  * actually moving it. Note that the source element has also .dndDragging class.
  */
+
 .mTest .dropzone .dndDraggingSource {
     display: none;
 }
-
 /**
  * An element with .dndPlaceholder class will be added as child of the dnd-list
  * while the user is dragging over it.
  */
+
 .mTest .dropzone .dndPlaceholder {
     box-shadow: none;
     text-align: center;
     color: white;
     font-size: 25px;
-/*    background-image: -webkit-linear-gradient(#efac36 0, #e9d678 100%);
+    /*    background-image: -webkit-linear-gradient(#efac36 0, #e9d678 100%);
     background-image: linear-gradient(#efac36, #e9d678);*/
+    
     min-height: 42px;
     display: block;
     position: relative;
 }
-.mTest .dropzone .in.collapse .dndPlaceholder{
+.mTest .dropzone .in.collapse .dndPlaceholder {
     box-shadow: none;
     text-align: center;
     color: white;
     font-size: 25px;
-/*    background-image: -webkit-linear-gradient(#efac36 0, #e9d678 100%);
+    /*    background-image: -webkit-linear-gradient(#efac36 0, #e9d678 100%);
     background-image: linear-gradient(#efac36, #e9d678);*/
+    
     min-height: 42px;
     display: block;
     position: relative;
 }
-
 /***************************** Element Selection *****************************/
 
 .mTest .dropzone .selected .item {
-
     color: #3c763d;
     background-color: #dff0d8;
 }
-
 .mTest .dropzone .selected .box {
     border-color: #d6e9c6;
 }
-
 .mTest .dropzone .selected .box > h3 {
     color: #3c763d;
     background-color: #dff0d8;
-    background-image: linear-gradient(to bottom,#dff0d8 0,#d0e9c6 100%);
+    background-image: linear-gradient(to bottom, #dff0d8 0, #d0e9c6 100%);
     border-color: #d6e9c6;
 }
-
 /***************************** Element type specific styles *****************************/
 
 .mTest .dropzone .item {
     float: left;
     padding: 0px;
 }
-
 .mTest .dropzone .container-element {
     border: none;
     margin: 0px;
     background: transparent;
 }
-
 .mTest .dropzone .container-element .column {
     float: left;
     width: 100%;
@@ -158,71 +157,196 @@ body {
     position: relative;
     top: 0;
     cursor: pointer;
-    height: 54px;
+    height: auto;
     border-radius: 3px;
-    box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px rgb(5, 124, 172);
     color: #888;
     -webkit-user-select: none;
     transition: all 0.2s ease;
     -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .dropzone.box.box-darkblue {
-        padding: 4px;
+    padding: 4px;
 }
-.mTest .dropzone li .handle,.mTest .dropzone li .handle_plus {
-
-    cursor: move;
+.popover {
+    color: #000;
+    width: 500px;
+    max-width: 500px!important;
+}
+.mTest .dropzone li .handle,
+.mTest .dropzone li .handle_plus {
+    padding-top: 4px;
+    width: 2%;
     font-size: 14px;
     color: white;
     line-height: 19px;
     float: left;
     margin: 0 6px;
 }
-
 .mTest .dropzone .container-element li .handle {
-    border-right: 1px solid #2d99d5;
     margin: 0px;
-    height: 54px;
-    padding: 15px 0px 0px 5px;
+    height: 58px;
+    padding: 17px 0px 0px 3px;
     width: 2.3%;
-    cursor: move;
+    cursor: pointer;
+    line-height: 22px;
+    z-index: 999;
+    display: inline-block;
+}
+.mTest .dropzone .container-element li .handle_plus {
+    padding-top: 3px;
+    width: 2%;
     line-height: 22px;
     z-index: 999;
 }
-
-.mTest .dropzone .container-element li .handle_plus  {
-    padding-top: 0px;
-    width: 1%;
-    cursor: move;
-    line-height: 22px;
-    z-index: 999;
+.mTest .dropzone .container-element li .handle_plus span,
+.mTest .dropzone li .handle span {
+    cursor: pointer;
 }
-
-.input_group {;
+.plus-hnd,
+.container-hnd {
+    line-height: 15px;
+    width: 18px;
     float: left;
-    width: 97.66%;
+    cursor: move;
+}
+.handle-bar {
+    cursor: move;
+}
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
 }
 .input_one {
-    border-right: 1px solid #2d99d5;
-    float: left;
-    padding: 2px 0px;
+        padding-right: 0px!important;
+}
+.input_one .dia {
+   width: 96%;
+}
+   .clear {
+       font-size: 19px;
+       height: 23px;
+       float: right;
+       margin-top: 0px;
+       background-color: #ffffff;
+       width: 4%;
+       border-radius: 0px 5px 5px 0px;
+       text-align: center;
+   }
+.input_one,
+.input_two,
+.input_three {
+    margin: 3px 0px;
+    float: left!important;
+}
+#input_group {
+    padding-right: 1px;
+    margin-top: 4px;
+    width: 93%;
+    display: inline-block;
+}
+ul.nav.nav-pills {
+    display: none;
+}
 
-    width: 63%;
+.tab-pane.ng-scope:nth-child(2) {
+    margin-right: -4px;
+    background-color: #0074b3;
+}
+
+.tabbuttons {
+    border-left: 2px solid #02486f;
+    background-color: #057cac;
+    height: 68px;
+    vertical-align: top;
+    display: inline-block;
+    width: 4.333%;
+}
+
+.corruption {
+    padding-top: 8px;
+}
+
+
+.tabbuttons button:nth-child(1) {
+    font-size: 20px;
+    border: 0px;
+    border-radius: 0px 4px 0px 0px;
+    color: #fff;
+    background: #02486f;
+}
+.tabbuttons button:nth-child(2) {
+    color: white;
+    background: url(../img/corrupt.png) no-repeat 52% 55% #0074b3;
+    border: 0px;
+}
+
+.tabbuttons button {
+    border-radius: 0px;
+    height: 34px;
+    width: 46px;
+    line-height: 20px;
+    vertical-align: middle;
+    font-size: 15px;
+    padding: 2px 7px 0px 7px;
+    float: right;
+
+}
+.tabbuttons button:focus {outline:0;}
+
+.input_two,
+.input_three {
+    width: 100%;
 }
 .input_two {
-    padding: 1px 0px;
-    width: 37%;
+    margin-right: 11px;
+}
+.input_two .input-group-addon {
+    background: #0073af;
+}
+.input_three .input-group-addon {
+    background: #16668f;
+}
+.leftinputs .input-group.first {
+    float: left;
+    width: 46%;
+}
+.leftinputs .input-group {
+    float: left;
+    width: 54%;
+}
+#input_group .input-group-addon {
+    padding: 0px 9px;
+    line-height: 9px;
+}
+.input-group-addon.leftinputs {
+    padding: 0px!important;
+    width: 40%;
+}
+.first,
+.second,
+.thrd {
     float: left;
 }
 
-@keyframes example {
-    from {background-color: red;}
-    to {background-color: yellow;}
+.input-group.first, .input-group.second, .input-group.thrd {
+    width: 33.19%;
+    margin-left: 2px;
+}
+.input-group.first {
+    margin-left: 0px;
 }
 
 .save_alert {
@@ -244,7 +368,7 @@ body {
     margin: 1px 0px;
 }
 .col-md-12.floatleft {
-    margin: 1px 0px;
+    margin: 0px 0px;
 }
 /***************************** Toolbox *****************************/
 
@@ -253,29 +377,28 @@ body {
     padding-left: 0px;
     cursor: move;
 }
-
 .mTest .toolbox button {
     margin: 5px;
     width: 123px;
     opacity: 1.0;
 }
-
 .mTest .toolbox .dndDragging {
     opacity: 0.5;
 }
-
 .mTest .toolbox .dndDraggingSource {
     opacity: 1.0;
 }
-
 /***************************** Trashcan *****************************/
 
+.dragitem img {
+    width: 90%;
+}
 .mTest .trashcan ul {
     list-style: none;
     padding-left: 0px;
 }
-
 .mTest .trashcan img {
+    height: 40px;
     padding: 0px;
     border-radius: 25px;
     -webkit-filter: grayscale(50%);
@@ -283,42 +406,28 @@ body {
     filter: grayscale(50%);
 }
 .mTest .trashcan img:hover {
-    
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
     filter: grayscale(100%);
 }
-
-
-
 .mTest .trashcan .dndDragover img {
     background: #ccc;
     -webkit-filter: none;
     -moz-filter: none;
     filter: none;
 }
-
 .mTest .trashcan .dndPlaceholder {
     display: none;
 }
-
-.ng-scope h1 {
-    text-align: left;
-    text-shadow: 2px 2px 0px rgb(131, 200, 234);
-    font-size: 7em;
-    color: #0075b6;
-}
-h3.ng-binding {
+.itemname {
     font-size: 19px;
-    text-shadow: #0075b5 1px 0px, #0075b5 1px 1px, #0075b5 0px 1px, #0075b5 -1px 1px, #0075b5 -1px 0px, #0075b5 -1px -1px, #0075b5 0px -1px, #0075b5 1px -1px;
     color: #fff;
     margin: 12px auto;
+    text-shadow: 1px 1px 1px #a9aaab;
 }
-
 .box {
-        margin-bottom: 7px;
+    margin-bottom: 7px;
 }
-
 .box > div > h3 {
     border-bottom: 1px solid transparent;
     border-top-right-radius: 3px;
@@ -330,30 +439,24 @@ h3.ng-binding {
     margin-top: 0;
     margin-bottom: 0;
 }
-
 .box-padding {
     padding: 0px;
 }
-
 .box-padding > h3 {
     margin: -15px;
     margin-bottom: 15px;
 }
-
 .box-grey {
     border-color: #ddd;
 }
-
 .box-grey > h3 {
     background-color: #f5f5f5;
-    background-image: -webkit-linear-gradient(top,#f5f5f5 0,#e8e8e8 100%);
-    background-image: linear-gradient(to bottom,#f5f5f5 0,#e8e8e8 100%);
+    background-image: -webkit-linear-gradient(top, #f5f5f5 0, #e8e8e8 100%);
+    background-image: linear-gradient(to bottom, #f5f5f5 0, #e8e8e8 100%);
 }
-
 .box-blue {
     border-color: #bce8f1;
 }
-
 .box-blue > div > h3 {
     text-shadow: none;
     border-radius: 0px;
@@ -362,18 +465,43 @@ h3.ng-binding {
     background-color: rgb(24, 134, 205);
     border-color: rgba(93, 93, 93, 0.79);
 }
-
+.input-group-addon {
+    background: #0073af;
+    color: #fff;
+    border: 0px;
+}
 div#header-sub {
     height: 26px;
 }
-
-.box-darkblue {
-    border-radius: 5px;
-    background-image: -webkit-linear-gradient(#7fc9f1 0, #ffc132 100%);
-    background-image: linear-gradient(#7fc9f1, #ffc132);
-    
+div#header-sub .input-group-addon {
+    line-height: 9px;
 }
 
+.container-header {
+    padding: 0px 1px;
+}
+.container-header .input-group-addon {
+    padding-top: 2px;
+}
+.container-header:nth-child(1) {
+    width: 75%;
+}
+.container-header:nth-child(2) {
+    height: 23px;
+    width: 25%;
+}
+.dia_input:nth-child(1){
+width: 69.7%;
+    margin-right: 2px;
+}
+.dia_input:nth-child(2){
+width: 30%;
+}
+
+.box-darkblue {
+    border-radius: 0px;
+    background: #d1c9b7;
+}
 .box-darkblue > h3 {
     text-shadow: none;
     font-weight: bold;
@@ -381,48 +509,38 @@ div#header-sub {
     color: #ffffff;
     border-bottom: 2px solid #f0b858;
 }
-
 .toolbox.box.box-grey.box-padding {
     padding-top: 1px;
 }
-
 .tools {
     padding: 0px 0px;
-    width: 19%;
-    border-radius: 0px 0px 14px 14px;
-    
 }
 .tools.inner {
     width: 100%;
     text-align: center;
     padding: 0px;
-
 }
 .tools.main {
+    background: #d1c9b7;
     width: 100%;
     text-align: center;
     padding: 0px;
-    background-image: -webkit-linear-gradient(#7fc9f1 0, #ffc132 100%);
-    background-image: linear-gradient(#7fc9f1, #ffc132);
-    border-radius: 14px 14px 0px 0px;
 }
 /*---------------------------form-------------------------*/
+
 .col-md-7.floatleft {
     padding-left: 6px;
 }
-
 label.col-md-2.control-label {
     line-height: 32px;
     text-align: left;
     padding-left: 0px;
     color: #fff;
 }
-
 select.form-control {
-width: 100%;
-padding: 0 12px;
+    width: 100%;
+    padding: 0 12px;
 }
-
 li.ng-scope {
     margin-bottom: 15px;
 }
@@ -432,100 +550,118 @@ li.ng-scope {
 .navbar-collapse.in {
     overflow-y: hidden;
 }
-
-
 form.form-horizontal .col-md-9 {
-
     height: 35px;
     padding: 0px;
 }
-
-h3.sum-header {
-    height: 45px;
-    padding: 0 10px;
+.sum-footer {
+    border-top: 2px solid #a47904;
+    margin: 0px -4px -5px -4px;
+    height: 41px;
     background: rgba(0, 0, 0, 0.2);
-    border-bottom: 0px;
-    border-radius: 3px;
-    box-shadow: inset 0px 4px rgba(0, 0, 0, 0.2);
     font-size: 17px;
     line-height: 40px;
     color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     text-align: right;
-    letter-spacing: 1px;
-    margin-top: 5px;
+}
+.sum-footer .input-group {
+    float: left;
+    margin-top: 4px;
 }
 
-.sum-header input.form-control {
-    border-radius: 3px 0px 0px 3px!important;
-    width: 91px;
-
+.reset button {
+    border-radius: 0px 4px 4px 0px;
+    height: 30px;
+    margin: 0 auto;
+    float: left;
+    width: 95%;
+    line-height: 18px;
 }
-.sum-header .input-group{
-    float: right;
-    margin-top: 7px;
-    min-width: 171px;
-}
-
 .requlatory {
-    height: 37px;
+    padding-top: 0px;
+    background: #948f83;
+    margin: -5px -4px 11px -4px;
+    height: 63px;
 }
-
-
+.requlatory input,
+.requlatory .input-group-addon {
+    height: 25px;
+}
+.requlatory .col-md-12 {
+    padding: 4px 4px 0px 4px;
+}
 .form-group.col-md-2 {
     float: right;
     padding: 0px;
 }
-li.ng-scope img, .trashcan img {
+li.ng-scope img,
+.trashcan img {
     padding: 4px;
     box-shadow: 0px 4px #009de4, 0px 10px 15px rgba(0, 0, 0, 0.2);
     background: rgba(248, 248, 248, 0.39);
     border-radius: 6px;
 }
-li.ng-scope img:hover, .trashcan img:hover {
+li.ng-scope img:hover,
+.trashcan img:hover {
     box-shadow: 0px 4px #f0b858, 0px 10px 15px rgba(0, 0, 0, 0.2);
 }
 .form-horizontal .form-group {
-    margin-right: -15px;
-    margin-left: -5px; 
+    margin-right: 0px;
+    margin-left: 0px;
 }
 .trashcan.box.box-grey.box-padding h3 {
     font-size: 19px;
     text-shadow: 1px 1px 0px #cecdcd;
     color: #fff;
 }
-
-
-
 .toolbox.box.box-grey.box-padding a {
     position: relative;
 }
-
-.popover {
-    text-decoration: none;
-    color: black;
-    position: absolute;
-    right: 100%;
-    top: 100%;
-    display: block;
-    padding: 0 20px;
-}
-
-.popover span {
-    display: block;
-    font-weight: 700;
-}
-
 #logo {
+    margin-top: 11px;
+    border-right: 4px solid #2875b6;
+    width: 30%;
     float: left;
 }
-#logo a:hover, #logo a:focus {
+#logo a:hover,
+#logo a:focus {
     text-decoration: none;
 }
+#logo h4 {
+    padding-right: 5px;
+    font-size: 23px;
+    font-weight: bold;
+}
+#header-right {
+    margin-right: -7px;
+    width: 70%;
+    float: left;
+}
+#slogan {
+    margin: 5px 0px 0px 5px;
+    width: 100%;
+    padding: 1px 4px;
+}
+#slogan h5 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 16px;
+    color: #898282;
+}
 #nav {
-    padding-top: 26px;
-    margin: 5px 0px;
-    float: right;
+    width: 100%;
+    margin: 10px 0px 5px 0px;
+}
+div#nav .btn {
+    font-weight: bolder;
+    border: 0px;
+    color: #0075b6;
+    background: transparent;
+    font-size: 24px;
+    line-height: 16px;
+}
+div#nav .btn:hover {
+    text-decoration: underline;
 }
 #sponsors {
     float: right;
@@ -565,23 +701,26 @@ div#cont-id {
     color: #fff;
     border-color: rgba(93, 93, 93, 0.79);
 }
-.btn1, .btn2 {
+.btn1,
+.btn2 {
     word-wrap: break-word;
     width: 100%;
     float: left;
 }
 .faq {
-        margin: 0px 0px 12px 0px;
+    margin: 0px 0px 12px 0px;
 }
 #btn-save {
+    font-size: 16px;
     width: 100%;
     border: 0px;
     color: white;
     box-shadow: 0px 2px #66b2dc, 0px 10px 15px rgba(0, 0, 0, 0.2);
     background-color: #0075b5;
-    border-radius: 0px 0px 14px 14px;
+    border-radius: 0px 0px 2px 2px;
 }
 #btn-dwn {
+    font-size: 16px;
     border-radius: 0px 0px 0px 0px;
     width: 100%;
     border: 0px;
@@ -589,91 +728,179 @@ div#cont-id {
     background-color: #0075b5;
     border-bottom: 1px solid #fff;
 }
-
-#btn-dwn:hover,#btn-save:hover {
-        background-color: #3ca6ea;
+#btn-dwn:hover,
+#btn-save:hover {
+    background-color: #3ca6ea;
 }
-#btn-dwn:active, #btn-save:active  {
+#btn-dwn:active,
+#btn-save:active {
     background-color: #507f98;
     box-shadow: 0 1px #6691a8;
 }
 
-@media (min-width: 768px) {
+    .modal-dialog {
+        width: 959px;
+        margin: 5% auto;
+    }
 
-.modal-dialog {
-    width: 959px;
-    margin: 5% auto;
-}
-.modal-body p {
-    line-height: 17px;
-    font-size: 13px;
-    margin-bottom: 4px;
-}
-.modal-dialog.modal-sm {
-    width: 335px;
-}
+    .modal-body p {
+        line-height: 17px;
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
 
-.brdr {
-    height: 3px;
-    width: 100%;
-    background: rgba(24, 134, 205, 0.69);
-    box-shadow: 2px 2px 1px rgba(0, 104, 198, 0.73);
-}
-.uib-typeahead-match.ng-scope{
-height:25px!important;
-}
-.ng-scope ul li input.form-control {
-    padding: 0px 12px;
-    height: 23px;
-}
-ul.dropdown-menu.ng-isolate-scope li {
-    padding: 0px 0px!important;
-    margin: 0px auto!important;
-    border-radius: 0px!important;
-    box-shadow: none!important;
-    background-color: #ffffff!important;
-    width: 100%!important;
-}
+    .modal-dialog.modal-sm {
+        width: 335px;
+    }
 
-a#btn-pos {
-    line-height: 44px;
-    margin-top: 10px;
-    font-size: 17px;
-    font-weight: bold;
-}
+    .brdr {
+        height: 3px;
+        width: 100%;
+        background: rgba(24, 134, 205, 0.69);
+    }
 
-li#container {
-    background: rgba(127, 126, 120, 0.63);
-}
+    .uib-typeahead-match.ng-scope {
+        height: 25px !important;
+    }
 
+    .ng-scope ul li input.form-control {
 
-li#itemplus {
-    width: 99%;
-    box-shadow: 0px -2px 0px #e11d1e;
-    background: #ae3c5e!important;
-    height: auto;
-}
+        padding: 0px 12px;
+        height: 23px;
+    }
 
-li#item {
-    width: 99%;
-}
+    ul.dropdown-menu.ng-isolate-scope li {
+        padding: 0px 0px !important;
+        margin: 0px auto !important;
+        border-radius: 0px !important;
+        box-shadow: none !important;
+        background-color: #ffffff !important;
+        width: 100% !important;
+    }
 
-li#itemplus li#item {
-    width: 100%;
-}
+    a#btn-pos {
+        line-height: 44px;
+        margin-top: 10px;
+        font-size: 17px;
+        font-weight: bold;
+    }
 
-.sum_hidden {
+    li#container {
+        background: rgba(127, 126, 120, 0.63);
+    }
+
+    li#itemplus {
+        width: 96%;
+        box-shadow: 0px -2px 0px #bc647d;
+        background: #9e576c !important;
+        height: auto;
+        margin-right: 8px;
+    }
+
+    li#item {
+        min-height: 59px
+    }
+
+    .column.ng-scope li#item {
+        margin-right: 7px;
+        width: 96.3%;
+    }
+
+    li#itemplus li#item {
+        margin-right: 3px;
+        width: 96.7%;
+    }
+
+    li#itemplus li#item .input_three {
+        width: 49.9%;
+    }
+
+    .sum_hidden {
         display: none;
-}
-div#nav .btn {
-    text-shadow: #0075b5 1px 0px, #0075b5 1px 1px, #0075b5 0px 1px, #0075b5 -1px 1px, #0075b5 -1px 0px, #0075b5 -1px -1px, #0075b5 0px -1px, #0075b5 1px -1px;
-    font-weight: bolder;
-    border: 0px;
-    color: #ffffff;
-    background: transparent;
-    font-size: 23px;
-}
-div#nav .btn:hover {
+    }
 
-text-decoration: underline;
+    .form-group.point.col-sm-12 {
+        margin-bottom: 3px;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #b9b9b9;
+    }
+
+    .form-group.point.col-sm-12 input {
+    }
+
+    .norma {
+        padding-top: 2px;
+        clear: both;
+    }
+
+    .corrtab {
+        border-radius: 8px;
+        border: 3px solid #0074b3;
+        list-style: none;
+    }
+
+    .corrbutton {
+        border-radius: 0px !important;
+        text-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    .corr {
+        border-radius: 0px !important;
+        text-shadow: none !important;
+        box-shadow: 0px 1px 0px #FFE !important;
+        color: #fff !important;
+    }
+
+    .corr button {
+        font-size: 18px;
+        background: none;
+        border: 0px;
+    }
+
+    .corr button:hover {
+
+        color: red;
+
+    }
+
+    .corr button:focus {
+        outline: none;
+        padding-top: 4px !important;
+
+    }
+
+    h3.corr {
+        margin-top: 9px;
+        color: #fff;
+    }
+
+    li.col-md-12.corr.ng-scope {
+        padding: 4px 0px;
+        margin: 1px 0px;
+    }
+.green {
+    color:white;
+    background: green;
+        border-radius: 10px;
+}
+span.corruption-bg {
+    background-image: url("../img/corrupt.png");
+}
+
+.comment {
+    width: 100%;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.bg-red {
+    color: white;
+    background-color: red!important;
+}
+.row2 {
+    display: none;
+}
+.corr_header h5{
+    color: #fff;
 }

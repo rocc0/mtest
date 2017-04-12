@@ -1,0 +1,35 @@
+        <div class="modal-header">
+            <h3 class="modal-title" id="modal-title">Надіслати форму третій особі</h3>
+        </div>
+        <div class="modal-body" id="modal-body">
+            <form method="POST" class="post-form" name="emailform">
+                <div class="form-group">
+                    <div class="input-group">
+                            <div class="input-group-addon">Ваше імя*</div>
+                            <input name= "author" class="form-control" ng-model="eauthor"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Ваш email*</div>
+                        <input name="email" class="form-control" type="text" ng-model="eemail"/> 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">Email отримувача*</div>
+                        <input name="emailfor" class="form-control" type="text" ng-model="eemailfor"/> 
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="botcheck">Ви людина?</label>
+                    <input name="botcheck" class="form-control" type="text" ng-model="ebotcheck"/>
+                </div>
+                <div style='text-align:center;width:100%'>
+                    <h4>Посилання для редагування:</h4>
+                    <h4><code><a href='{[{ getUrlData() }]}'>{[{ getUrlData() }]}</a></code></h4>
+                </div>
+                <div class="g-recaptcha" data-sitekey="6LdRhA4UAAAAAMrSW7AB0n2h84JZUAWlt0aLDP7q"></div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" name="submitform" ng-click="sendEmail($event)">Надіслати</button>
+            </form> 
+        </div>

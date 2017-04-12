@@ -15,15 +15,71 @@ mTestApp.factory("LS", function($window, $rootScope, $location, $http) {
     },
     getData: function() {
       if ($window.localStorage && $window.localStorage.getItem('my-storage') == null) {
-        return {'1':[
-        {"type":"container","id":1,"columns":[[{"type":"item","id":1,"name":"Процедура"},
-        {"type":"item","id":2,"name":"Процедура"},
-        {"type":"item","id":3,"name":"Процедура"},
-        {"type":"item","id":4,"name":"Процедура"}]],"name":"Суб'єкт"},
-        {"type":"container","id":2,"columns":[[{"type":"item","id":5,"name":"Процедура"},
-        {"type":"item","id":6,"name":"Процедура"},
-        {"type":"item","id":7,"name":"Процедура"},
-        {"type":"item","id":8,"name":"Процедура"}]],"name":"Суб'єкт"}]};
+        return {  
+   "1":[  
+      {  
+         "type":"container",
+         "id":3,
+         "columns":[  
+            [  
+               {  
+                  "type":"itemplus",
+                  "id":3,
+                  "columns":[  
+                     [  
+                        {  
+                           "type":"item",
+                           "id":3,
+                           "name":"Додати дію",
+                           "subsum":null,
+                           "vchi":null
+                        },
+                        {  
+                           "type":"item",
+                           "id":6,
+                           "name":"Додати дію",
+                           "subsum":null
+                        }
+                     ]
+                  ],
+                  "name":"Додати розширену дію"
+               }
+            ]
+         ],
+         "name":"Додати зобов’язання"
+      },
+      {  
+         "type":"container",
+         "id":null,
+         "columns":[  
+            [  
+               {  
+                  "type":"itemplus",
+                  "id":4,
+                  "columns":[  
+                     [  
+                        {  
+                           "type":"item",
+                           "id":3,
+                           "name":"Додати дію",
+                           "subsum":null
+                        },
+                        {  
+                           "type":"item",
+                           "id":4,
+                           "name":"Додати дію",
+                           "subsum":null
+                        }
+                     ]
+                  ],
+                  "name":"Додати складову інф. вимоги"
+               }
+            ]
+         ],
+         "name":"Додати інф. вимогу"
+      }
+   ]
+};
       }
       else {
         return $window.localStorage && $window.localStorage.getItem('my-storage');
@@ -31,3 +87,4 @@ mTestApp.factory("LS", function($window, $rootScope, $location, $http) {
     }
   };
 });
+

@@ -36,6 +36,25 @@ mTestApp.factory('toPdf', function () {
 		      		table += '<div class="subsum"><div class="subname floatleft"><b>Витрати:</b> </div><div class="subnum floatleft"><b>'+sum[rowArr[i]['id']-1]+' грн</b> </div></div></div>'
 		    	};
 		  		return table2+table3+table4+table+summa+'</div>';
+			},
+		corruptEmail: function(data) {
+			var fields = eval(data);
+			output = '';
+			for (var i =0; i < Object.keys(data).length; i++){
+				var row = Object.keys(data)[i]
+				if (row != 'drsu' && row != 'comment') {
+					output += '<div border="2"><div class="row"><div class="col-sm-6">'+ fields[row]['question'] + '</div><div class="col-sm-2">' + fields[row]['ok'] + '</div><div class="col-sm-2">' + fields[row]['level'] + '</div><div class="col-sm-2">' + fields[row]['price'] + ' грн</div></div>'
+					output += '<div class="row"><div class="col-sm-4">'+ fields[row]['norma1'] + '</div>' + '<div class="col-sm-4">'+ fields[row]['norma2'] + '</div>' + '<div class="col-sm-4">'+ fields[row]['norma3'] + '</div></div></div>'
+				} else if (row == 'corrupSum') {
+					'<div><div class="col-md-8">Сума:</div> <div class="col-md-4">' + fields[row] + '</div></div>'
+				} else if (row == 'drsu') {
+					output += '<div class="row" border="2"><div>Чи потрібне втручання ДРСУ?</div><div>' + fields[row] + '</div></div>'
+				} else if (row == 'comment') {
+					output += '<div class="row" border="2"><div class="col-sm-12">Коментар</div><div class="col-sm-12">' + fields[row] + '</div></div>'
+				}
 			}
+			return output;
+
+		}
 		}
 	})

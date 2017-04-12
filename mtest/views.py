@@ -57,6 +57,8 @@ def sendmail(request):
                 'contact_email': emailfrom,
                 'form_content': message,
             })
+            if emailfrom == 'mtest@clc.com.ua':
+                template = get_template('mtest/corr_template.html')
             content = template.render(context)
             fullemail = author + " " + "<" + emailfrom + ">"
             try:

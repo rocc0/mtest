@@ -18,8 +18,9 @@ class DiaAdmin(bulk_admin.BulkModelAdmin):
         (None,               {'fields': ['dia_name']}),
         ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
     ]
+    readonly_fields=('id',)
     list_filter = ['pub_date']
-    list_display = ('dia_name', 'pub_date')
+    list_display = ('id','dia_name', 'pub_date')
 
 
 class ZobAdmin(bulk_admin.BulkModelAdmin):

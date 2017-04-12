@@ -10,13 +10,13 @@ def uib_view(request, model, param, *args, **kwargs):
 	if model == 'posady':
 		data = Profession.objects.values_list(param)
 	elif model == 'dii':
-		data = Dia.objects.values_list(param)
+		data = Dia.objects.values_list('id','dia_name')
 	elif model == 'zob':
 		data = Zob.objects.values_list(param)
 	else:
 		data = ['','']
 
-	data = ["".join(i) for i in data]
+	data = [v for v in data]
 	return JsonResponse(tuple(data), safe=False)
 
 

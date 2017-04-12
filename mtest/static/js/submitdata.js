@@ -46,6 +46,19 @@ mTestApp.factory('SubmitData', function ($window, $http, $location) {
             console.log(headers(data))
             $window.location.href = message
           })
+      },
+      sendEmailCorr: function (author, email, emailfor, token, message) {
+        var data2 = $.param({ 
+          csrfmiddlewaretoken: token,
+          author: author, 
+          emailfrom: email, 
+          emailfor: emailfor,  
+          message: message
+           });
+        $http.post("/email/send/", data2)
+          .success(function (data, status, headers) {
+            console.log(headers(data))
+          })
       }
     };
 });
