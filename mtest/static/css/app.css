@@ -908,7 +908,7 @@ span.corruption-bg {
     background-color: red!important;
 }
 .row2 {
-    display: none;
+    display: block;
 }
 .corr_header h5{
     color: #fff;

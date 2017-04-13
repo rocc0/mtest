@@ -165,7 +165,7 @@
                             <div class="row itemplus">
                                 <div class="row itp-heading">
                                      <h4 class="pull-left number">#{[{ $index+1 }]}.</h4>
-                                     <h4 class="pull-left info"><b>Назва складової:</b> {[{ item.zob[0] }]}</h4>
+                                     <h4 class="pull-left info"><b>Назва складової:</b> {[{ item.zob }]}</h4>
                                 </div>
 
                                 <div class="row" ng-repeat="item in item.columns[0]">
@@ -205,7 +205,7 @@
                 <h4 style="color:red"><b>Критична корупційна складова!</b></h4>
             </div>
             <div class="row bordr">
-                <h4><b>Корупційна складова:</b></h4>
+                <h4><b>Корупційна складова:</b> {[{ item.proc[1] }]}</h4>
                 <div class="row">
                     <h5 class="col-md-10 pull-left"><b>Назва складової</b></h5>
                     <h5 class="col-md-2 pull-left"><b>Вплив</b></h5>
