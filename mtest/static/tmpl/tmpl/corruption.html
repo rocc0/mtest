@@ -41,7 +41,9 @@
           ng-hide="quest.dep == 1 && item.adq.quests[$index - 1].res == null || quest.dep == 1 && item.adq
           .quests[$index - 1].res == 0 || quest.dep2 == 1 && item.adq
           .quests[$index - 2].res == 0 || quest.dep2 == 1 && item.adq
-          .quests[$index - 2].res == null">
+          .quests[$index - 2].res == null || quest.dep3 == 1 && item.adq
+          .quests[$index - 3].res == 0 || quest.dep3 == 1 && item.adq
+          .quests[$index - 3].res == null">
               <h4 class="col-md-12" ng-show="quest.show == 1"> {[{ quest.header }]}</h4>
               <div class="row">
             <div class="col-md-7" >

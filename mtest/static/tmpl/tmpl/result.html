@@ -1,4 +1,4 @@
-<div id="report">
+<div id="report" style="line-height: 1.42857143;width: 100%;margin: 0 auto;background: #fff;padding: 5px;">
 
     <style>
         * {
@@ -22,8 +22,11 @@
     #report .col-md-3 {
     width: 25%;
 }
+    #report .col-md-10 {
+    width: 83.33333333%;
+}
     #report .col-md-2 {
-    width: 16.66666667%
+    width: 16.66666667%;
 }
     #report .col-md-12 {
     width: 100%;
@@ -152,7 +155,8 @@
                             <h4 class="pull-left number">#{[{ $index+1 }]}.</h4>
                         <div class="pull-left info">
                             <h4 class="row"><b>Інформаційна вимога: </b> {[{ container.zob }]}</h4>
-                            <h4 class="row"><b>Сукупна вартість вимоги:</b> {[{ container.contsub }]} грн</h4>
+                            <h4 class="row"><b>Сукупна вартість вимоги:</b> {[{ container.contsub | number: 0}]}
+                                грн</h4>
                         </div>
                 </div>
                 <div class="row">
@@ -182,41 +186,45 @@
 
 <script type="text/ng-template" id="item_result.html">
     <div class="row item">
-        <div class="row bordr itm-heading">
-           <h4 class="pull-left number">#{[{ $index+1 }]}.</h4>
-            <h4 class="pull-left info"><b>Назва дії/процедури:</b>{[{ item.proc[1] }]}</h4>
-        </div>
-        <div class="row bordr-red" style="display: {[{ hideCritical(item.total) }]}">
-            <h4 style="color:red"><b>Критична корупційна складова!</b></h4>
-        </div>
-        <div class="row bordr">
-            <h4 class="col-md-12"><b>Розрахункова складова:</b></h4>
-            <div class="col-md-3 pull-left"><b>Частота застосування(КРі):</b> {[{ item.kri }]} раз</div>
-            <div class="col-md-3 pull-left"><b>Оплата(ВЧі): </b>{[{ item.vchi }]} грн</div>
-            <div class="col-md-3 pull-left"><b>Супутні витрати(ПВРі):</b> {[{ item.pvri }]} грн</div>
-            <div class="col-md-3 pull-left"><b>Час(ЧІ): </b>{[{ item.chi }]} год.</div>
-        </div>
-        <div class="row bordr">
-            <h4><b>Корупційна складова:</b></h4>
-            <div class="row">
-                <h5 class="col-md-8 pull-left"><b>Назва складової</b></h5>
-                <h5 class="col-md-2 pull-left"><b>Присутня/Не присутня</b></h5>
-                <h5 class="col-md-2 pull-left"><b>Вплив</b></h5>
+        <div class="math_part" ng-if="reportToggler == 1">
+            <div class="row bordr itm-heading">
+               <h4 class="pull-left number">#{[{ $index+1 }]}.</h4>
+                <h4 class="pull-left info"><b>Назва дії/процедури:</b>{[{ item.proc[1] }]}</h4>
             </div>
 
-            <div class="row question"
-                 ng-repeat="qt in item.adq.quests"
-                 ng-hide="qt.dep == 1 && item.adq.quests[$index - 1].res == 0"
-            style="display: {[{ hideQuestion(qt.dep, item.adq.quests[$index - 1].res) }]}">
-                <div class="col-md-8 pull-left">{[{ qt.text }]}</div>
-                <div class="col-md-2 pull-left">{[{ valueToText(qt.res, "yn") }]}</div>
-                <div class="col-md-2 pull-left">{[{ valueToText(qt.effect, "ef") }]}</div>
+            <div class="row bordr">
+                <h4 class="col-md-12"><b>Розрахункова складова:</b></h4>
+                <div class="col-md-3 pull-left"><b>Частота застосування(КРі):</b> {[{ item.kri }]} раз</div>
+                <div class="col-md-3 pull-left"><b>Оплата(ВЧі): </b>{[{ item.vchi }]} грн</div>
+                <div class="col-md-3 pull-left"><b>Супутні витрати(ПВРі):</b> {[{ item.pvri }]} грн</div>
+                <div class="col-md-3 pull-left"><b>Час(ЧІ): </b>{[{ item.chi }]} год.</div>
             </div>
         </div>
-        <div class="row" ng-show="item.comment != null">
-            <h4><b>Коментар:</b></h4>
-            <div class="row">
-                {[{ item.comment }]}
+        <div class="cor_part" ng-if="reportToggler == 0 || reportToggler == null">
+            <div class="row bordr-red" style="display: {[{ hideCritical(item.total) }]}">
+                <h4 style="color:red"><b>Критична корупційна складова!</b></h4>
+            </div>
+            <div class="row bordr">
+                <h4><b>Корупційна складова:</b></h4>
+                <div class="row">
+                    <h5 class="col-md-10 pull-left"><b>Назва складової</b></h5>
+                    <h5 class="col-md-2 pull-left"><b>Вплив</b></h5>
+                </div>
+
+                <div class="row question"
+                     ng-repeat="qt in item.adq.quests | filter: {res: 1}"
+
+                style="display: {[{ hideQuestion(qt.dep, item.adq.quests[$index - 1].res) }]}">
+                    <div class="col-md-10 pull-left">{[{ qt.text }]}</div>
+
+                    <div class="col-md-2 pull-left">{[{ valueToText(qt.effect, "ef") }]}</div>
+                </div>
+            </div>
+            <div class="row" ng-if="item.comment != null">
+                <h4><b>Коментар:</b></h4>
+                <div class="row">
+                    {[{ item.comment }]}
+                </div>
             </div>
         </div>
     </div>

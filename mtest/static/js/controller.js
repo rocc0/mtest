@@ -1,5 +1,5 @@
 var mTestApp = angular.module("mTestApp", ["ngAnimate", "ngSanitize", "ngCookies", "ngRoute",
-    "dndLists", "ui.bootstrap", "ngAnimate", "sticky"]);
+    "dndLists", "ui.bootstrap", "ngAnimate", "sticky", "ui.toggle"]);
 var cookiesProvider_ref = null;
 mTestApp.config(function($compileProvider, $interpolateProvider, $routeProvider, $locationProvider, $cookiesProvider, $httpProvider) {
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blob):/);

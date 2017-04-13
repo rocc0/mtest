@@ -13,7 +13,7 @@ mTestApp.factory('MathData', function () {
                 var itemplus = col[j]['columns'][0];
                 for(var k = 0; k < itemplus.length; k++){
                   if (itemplus[k]['subsum'] > 0){
-                    subtotal += itemplus[k]['subsum']
+                    subtotal += Math.round(itemplus[k]['subsum'])
                   } else {
                   subtotal += 0
                   }

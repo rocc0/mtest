@@ -706,6 +706,11 @@ div#cont-id {
     word-wrap: break-word;
     width: 100%;
     float: left;
+        border-bottom: 1px solid #fff;
+    background-color: #0075b5;
+}
+.corr_toggle {
+    line-height: 39px;
 }
 .faq {
     margin: 0px 0px 12px 0px;
@@ -720,13 +725,17 @@ div#cont-id {
     border-radius: 0px 0px 2px 2px;
 }
 #btn-dwn {
+
+    /* border-bottom: 1px solid #fff; */
     font-size: 16px;
     border-radius: 0px 0px 0px 0px;
-    width: 100%;
+    /* width: 100%; */
     border: 0px;
     color: white;
     background-color: #0075b5;
-    border-bottom: 1px solid #fff;
+    /* border-bottom: 1px solid #fff; */
+    float: left;
+
 }
 #btn-dwn:hover,
 #btn-save:hover {

@@ -21,12 +21,14 @@
                         <button type="button" class="btn btn-danger" ng-click="reset()">Очистити форму</button>
                         </div>
                     <div class="col-md-5 input-group">
-
                         <div class='input-group-addon' style="width: 30%;">
-                            <span class="glyphicon glyphicon-question-sign" aria-hidden="true" popover-placement="top-left" uib-popover="
-                            Кількість – кількість суб`єктів малого бізнесу, на яких поширюється регулювання/ІВ. В формулі позначається 
+                            <span class="glyphicon glyphicon-question-sign"
+                                  aria-hidden="true"
+                                  popover-placement="top-left"
+                                  uib-popover="
+                            Кількість – кількість суб`єктів малого бізнесу, на яких поширюється регулювання/ІВ. В формулі позначається
                             " popover-trigger="'mouseenter'">
-                        </span> Кількість суб'єктів(шт.):</div>
+                            </span>Кількість суб'єктів(шт.):</div>
                         <input type="number" style="width: 70%;height: 30px;" class="form-control" name="ki"
                                ng-model="list[0].ki" placeholder='Кі (шт.)'>
                     </div>
@@ -80,7 +82,9 @@
                             <span class="glyphicon glyphicon-cloud-download"></span>
                             <span>Завантажити</span>
                         </a>
+                        <toggle ng-model="reportToggler" on="М-ТЕСТ" off="Кор." class="corr_toggle"></toggle>
                     </div>
+
                     <div class="btn2">
                     <form method="POST" class="post-form" name="form">
                         <button type="submit"
