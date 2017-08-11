@@ -5,12 +5,12 @@
                           aria-hidden="true"
                           ng-click="openModal('col-sm-9','static/tmpl/tmpl/ReqProc.html','mTestController')">
                     </span>
-                    Дія/Процедура
+                    Adm. action
                 </div>
                 <input class="form-control dia"
                        ng-model="item.proc"
                        name="proc"
-                       placeholder="Оберіть дію"
+                       placeholder="Choose an action"
                        uib-typeahead="dia as dia[1] for dia in dii | limitTo:15"
                        ng-change="item.adq = questions[item.proc[0]]"
                        typeahead-on-select="item.adq = questions[item.proc[0]]; item.total = 0"
@@ -30,7 +30,7 @@
                               popover-trigger="'mouseenter'"
                               popover-placement="top">
                             </span>
-                        Частота застосування
+                        Freq. of application
                     </div>
                     <input type="number" class="form-control" name="kri" ng-model="item.kri" placeholder='КРі (раз)'>
                 </div>
@@ -45,7 +45,7 @@
                           popover-trigger="'mouseenter'"
                           popover-placement="top-left">
                     </span>
-                Супутні витрати(грн.)</div>
+                Related costs(UAH)</div>
                 <input type="number" class="form-control" name="pvri" ng-model="item.pvri" placeholder='ПВРі (грн)'>
             </div>
               <div class="input-group second">
@@ -57,7 +57,7 @@
                               popover-trigger="'mouseenter'"
                               popover-placement="top">
                         </span>
-                    Час(год.):</div>
+                    Time(hr.):</div>
                     <input type="number" class="form-control" name="chi" ng-model="item.chi" placeholder="Чі (год)">
                 </div>
                 <div class="input-group thrd">
@@ -68,7 +68,7 @@
                               popover-trigger="'mouseenter'"
                               popover-placement="left">
                         </span>
-                    Оплата(грн.):</div>
+                    Payment(UAH):</div>
                     <input type="number" class="form-control" name="vchi" ng-model="item.vchi" placeholder="ВЧі (грн)"> 
                 </div>   
             </div>

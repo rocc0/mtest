@@ -48,18 +48,18 @@ mTestApp.controller("mTestController", function($scope, $sce, $http, $cookies, $
             columns: [
                 [],
             ],
-            name: "Додати інф. вимогу",
+            name: "Add inf. obligation",
         }, {
             type: "itemplus",
             id: 3,
             columns: [
                 [],
             ],
-            name: "Додати складову інф. вимоги",
+            name: "Add a component of the inf. obligation",
         }, {
             type: "item",
             id: 3,
-            name: "Додати дію"
+            name: "Add action"
         }],
         dropzones: this.data
     };
@@ -127,7 +127,7 @@ mTestApp.controller("mTestController", function($scope, $sce, $http, $cookies, $
         $event.preventDefault
         return SubmitData.sendEmailCorr('M-TEST Corruption', 'mtest@clc.com.ua', 'vk@clc.com.ua', $cookies.csrftoken, toPdf.corruptEmail($scope.formData))
     };
-    $scope.effectPopover = $sce.trustAsHtml('Критично – реалізація корупційного ризику призведе до зупинки діяльності <br> Суттєво - реалізація корупційного ризику призведе до суттєвих витрат грошей та/або часу співставних з розміром щомісячного прибутку');
+    $scope.effectPopover = $sce.trustAsHtml('Critical: the actualization of corruption risk will block of activity <br> Essential:  the actualization of corruption risk will lead to significant spending of money and / or time comparable to the size of the monthly profit');
 
     var trusted = {};
     $scope.getPopoverContent = function(content) {
@@ -232,9 +232,9 @@ mTestApp.controller("mTestController", function($scope, $sce, $http, $cookies, $
     var a = ''
     if ( total > length/2){
         a = 'danger'
-        $scope.barText = "Критична корупційна складова!";
+        $scope.barText = "Corruptional impact is critical!";
     } else {
-        $scope.barText = "Кількість корупційних ризиків:" + total;
+        $scope.barText = "Quantity of curruptional risks:" + total;
         a = 'success'
     }
     return a
@@ -243,11 +243,11 @@ mTestApp.controller("mTestController", function($scope, $sce, $http, $cookies, $
     $scope.valueToText = function (val, type) {
         if (type == "yn") {
             if (val == 1 || val == "Yes"){
-                return "Так"
+                return "Yes"
             } else if (val == 0 || val == "No"){
-                return "Ні"
+                return "No"
             } else if (val == "idk"){
-                return "Незнаю"
+                return "Don't know"
             } else {
                 return "Не заповнено!"
             }
@@ -266,7 +266,7 @@ mTestApp.controller("mTestController", function($scope, $sce, $http, $cookies, $
 
     //---------------------------------------------RESET--------------------------------------------------------
     $scope.reset = function() {
-        $scope.models.dropzones = angular.copy({"1":[{"type":"container","id":3,"columns":[[{"type":"itemplus","id":3,"columns":[[{"type":"item","id":3,"name":"Додати дію","subsum":0},{"type":"item","id":6,"name":"Додати дію","subsum":0}]],"name":"Додати складову інф. вимоги"}]],"name":"Додати інф. вимогу","contsub":0},{"type":"container","id":null,"columns":[[{"type":"itemplus","id":4,"columns":[[{"type":"item","id":3,"name":"Додати дію","subsum":0},{"type":"item","id":4,"name":"Додати дію","subsum":0}]],"name":"Додати складову інф. вимоги"}]],"name":"Додати інф. вимогу","contsub":0}]});
+        $scope.models.dropzones = angular.copy({"1":[{"type":"container","id":3,"columns":[[{"type":"itemplus","id":3,"columns":[[{"type":"item","id":3,"name":"Add action","subsum":0},{"type":"item","id":6,"name":"Add action","subsum":0}]],"name":"Add a component of the inf. obligation"}]],"name":"Add inf. obligation","contsub":0},{"type":"container","id":null,"columns":[[{"type":"itemplus","id":4,"columns":[[{"type":"item","id":3,"name":"Add action","subsum":0},{"type":"item","id":4,"name":"Add action","subsum":0}]],"name":"Add a component of the inf. obligation"}]],"name":"Add inf. obligation","contsub":0}]});
     }
     
 });
@@ -293,18 +293,18 @@ mTestApp.controller("mTestController_DB", function($scope, $timeout, $sce, $http
                 columns: [
                     [],
                 ],
-                name: "Додати інф. вимогу"
+                name: "Add inf. obligation"
             }, {
                 type: "itemplus",
                 id: 3,
                 columns: [
                     [],
                 ],
-                name: "Додати складову інф. вимоги"
+                name: "Add a component of the inf. obligation"
             }, {
                 type: "item",
                 id: 3,
-                name: "Додати дію"
+                name: "Add action"
             }],
             dropzones: this.val
         };

@@ -20,10 +20,10 @@
       </div>
      <li class="corr_header">
          <div class="col-md-7">
-             <h5>Запитання</h5>
+             <h5>Questions</h5>
          </div>
          <div class="col-md-2" style="text-align: center">
-             <h5>Так/Ні/Незнаю</h5>
+             <h5>Yes / No / Don`t know</h5>
          </div>
          <div class="col-md-2" style="text-align: center">
             <h5><span class="glyphicon glyphicon-question-sign"
@@ -32,7 +32,7 @@
                               popover-trigger="'mouseenter'"
                               popover-placement="top"
                               style="margin-right: 2px;">
-             </span>Вплив</h5>
+             </span>Impact</h5>
          </div>
          <div class="col-md-1">
          </div>
@@ -65,7 +65,7 @@
                       ng-change="item.resarr[$index] = addToSlider(quest.res,quest.effect);
                       item.total = corr_sum(item.resarr)">
                   <option ng-repeat="yn in quest.yesno" value='{[{ yn.value }]}'>{[{yn.name}]}</option>
-                  <option  value='idk'>Незнаю/Не застосов.</option>
+                  <option  value='idk'>Don't know/Not used.</option>
               </select>
             </div>
             <div class="col-xs-2">
@@ -75,9 +75,9 @@
                       ng-disabled="quest.dep == 1 && item.adq.quests[$index - 1].res == 0"
                       ng-change="item.resarr[$index] = addToSlider(quest.res, quest.effect);
                       item.total = corr_sum(item.resarr)">
-                  <option value="0" >Несуттєво</option>
-                  <option value="1" >Суттєво</option>
-                  <option value="100" >Критично</option>
+                  <option value="0" >Not essential</option>
+                  <option value="1" >Essential</option>
+                  <option value="100" >Critical</option>
               </select>
             </div>
             <div class="col-xs-1" style="display: {[{ quest.remove }]} ">
@@ -97,7 +97,7 @@
                            style="width: 96%;border-radius: 5px 0px 0px 5px;"
                            type="text"
                            ng-model="newquest"
-                           placeholder="Додати своє питання">
+                           placeholder="Add your question">
                     <a class="clear" ng-click="newquest = null" style="height: 30px;line-height: 33px;">
                     <span class="glyphicon glyphicon-remove-circle"></span>
                 </a></div>
@@ -105,12 +105,12 @@
                 <div class="col-md-1">
                   <button type="button"
                           ng-click="addRow(item.adq.quests, newquest); newquest = null"
-                          class="btn btn-primary">Додати</button>
+                          class="btn btn-primary">Add</button>
                 </div>
             </fieldset>
           </li>
           <li class="col-md-12 comment-block">
-                <textarea ng-model="item.comment" placeholder="Додайте коментар" class="comment">
+                <textarea ng-model="item.comment" placeholder="Add a comment" class="comment">
                 </textarea>
           </li>
  </ul>

@@ -1,12 +1,12 @@
 {
   "1": {
-    "header": "Ознайомлення з інформаційними вимогами",
+    "header": "Familiarising with the Information Obligations",
     "whatisit": "Ресурсні витрати бізнесу в зв’язку з необхідністю прочитати і вивчити правила/вимоги, що запроваджені із введенням регулювання (задіяні працівники та їхній час)",
     "len": 8,
     "total": 0,
     "quests": [
       {
-        "text": "Чи доступна інформація про регулювання (текст акту, додатки до нього - зокрема, бланки, зразки документів і т.і.)  у вільному доступі?",
+        "text": "Is the text of the regulation readily accessible (without applying for it to a public servant)?",
         "yesno": [
           {
             "name": "Так",
@@ -18,10 +18,10 @@
           }
         ],
         "remove": "none",
-        "example": "05.04.2017р. на сайті Миколаївської міської ради розміщений реєстр регуляторних актів станом 01.11.2016р. Таким чином, для того щоб з’ясувати, чи потрібний текст рішення є актуальним на момент його опрацювання, слід звертатися до посадовців міської ради"
+        "example": "On April 5, 2017 the Register of Regulatory Acts (as of November 1, 2016) was posted on the Mykolayiv City Council website. Thus, in order to find out if the requested text of the decision is valid at the time of its analysis, it is necessary to apply to the City Council officials."
       },
       {
-        "text": "Чи доступна і зрозуміла інформація про додатки до регулювання - зокрема, бланки, форми, тощо -  у вільному доступі (без звернення до службовця)?",
+        "text": "Is there clear information on annexes to the regulatory act – in particular, forms, tables, etc? Is it readily accessible (without applying for it to a public servant)?",
         "yesno": [
           {
             "name": "Так",
@@ -36,7 +36,7 @@
         "example": "Форма заяви про оренду, яку подає суб’єкт господарювання відповідно до пункту 5.2 та пункту 6.10 Положення, не є додатком до цього Положення."
       },
       {
-        "text": "Чи доступна інформація про регулювання в електронній формі?",
+        "text": "Is information about the regulatory act available online? ",
         "yesno": [
           {
             "name": "Так",
@@ -51,7 +51,7 @@
         "example": "05.04.2017р.на сайті Миколаївської міської ради розміщений реєстр регуляторних актів станом 01.11.2016р"
       },
       {
-        "text": "Чи містить текст акту усі внесені зміни?",
+        "text": "Does the text of the regulation contain all introduced amendments? ",
         "yesno": [
           {
             "name": "Так",
@@ -66,7 +66,7 @@
         "example": "Наприклад, до рішення міської ради внесено 6 змін. Проте на сайті Миколаївської міської ради згадано лише 5 змін"
       },
       {
-        "text": "Чи існує потреба ознайомлюватися  окремо з усіма актами, якими раніше були внесені зміни?",
+        "text": "Is there a need to study separately all acts that introduced those amendments earlier?",
         "yesno": [
           {
             "name": "Так",
@@ -81,7 +81,7 @@
         "example": "На сайті Миколаївської міської ради текст рішення не викладено в чинній редакції станом на дату ознайомлення. Тому необхідно додатково ознайомлюватися з усіма рішеннми міської ради, якими внесено зміни"
       },
       {
-        "text": "Чи потрібен Вам контакт з органом влади, щоб отримати  текст акту в актуалізованому стані? (Наприклад, особисті контакти на робочому місці (офіційний прийом тощо), офіційні та неофіційні контакти у позаробочий час, контакти через Вашого представника (адвоката, юриста) тощо)?",
+        "text": "Do you need to contact an authority in order to receive an updated text?",
         "yesno": [
           {
             "name": "Так",
@@ -96,7 +96,7 @@
         "example": "На сайті Миколаївської міської ради текст рішення не викладено в актуалізованому стані. Тому необхідно додатково звертатися до посадовця для того щоб отримати текст рішення в актуалізованому стані"
       },
       {
-        "text": "Чи потрібна додаткова консультація для з'ясування/тлумачення вимог акту (звернення до посадовців, особисто у ЦНАП чи в регуляторний орган, до зовнішніх юристів/консультантів тощо)?",
+        "text": "Do you need an additional consultation to understand/interpret the regulatory act requirements (applying to an official, an Administrative Services Center or a regulatory authority, outside lawyers/consultants, etc)?",
         "yesno": [
           {
             "name": "Так",
@@ -232,12 +232,12 @@
     ]
   },
   "4": {
-    "header": "Підготовка нових даних/документів (коригування існуючих) та отримання документів (дозволів, погоджень тощо) від третіх сторін (зовнішні процедури)",
+    "header": "Adjusting existing data and Producing new data",
     "len": 17,
     "total": 0,
     "quests": [
       {
-        "text": "Чи зрозуміло які документи необхідно отримати та у якого суб’єкта?",
+        "text": "Is it clear what documents you need to get and from whom?",
         "yesno": [
           {
             "name": "Так",
@@ -252,7 +252,7 @@
         "example": "Відповідно до пункту 11.3 розділу 11 Положення про оренду земельних ділянок комунальної власності у м. Івано-Франківську, затвердженого рішенням Івано-Франківської міської ради від 19.06.2014р. №1446-45, до клопотання про поновлення договору оренди землі орендар додає проект додаткової угоди, який готується Управлінням та передбачені документи. Проте не зрозуміло, які саме передбачені документи, що це за документи та в кого їх слід отримати."
       },
       {
-        "text": "Чи  визначена необхідність звертатися за посередництвом до сторонньої організації/виконавця? ",
+        "text": "Is there a clear need to turn to an intermediary (external organization/executing agency)? ",
         "yesno": [
           {
             "name": "Так",
@@ -266,7 +266,7 @@
         "remove": "none"
       },
       {
-        "text": "Чи є вільний вибір таких організацій/виконавців?",
+        "text": "Is there a free choice of such organizations/executing agencies?",
         "yesno": [
           {
             "name": "Так",
@@ -736,13 +736,13 @@
     "quests": []
   },
   "10": {
-    "header": "Подання інформації до відповідних органів (наприклад, надсилання або доставка відомостей до органів влади)",
+    "header": "Submiting  the information to the relevant authorty (for example, sending or delivering data to regulatory authorities)",
     "whatisit": "У тих випадках, коли дотримання інформаційної вимоги потребує подання інформації про бізнес та його діяльність інформація повинна передаватися відповідному державному органу",
     "len": 7,
     "total": 0,
     "quests": [
       {
-        "text": "Чи визначений в законодавстві обов’язок подання інформації?",
+        "text": "Is the obligation to provide information stipulated by the legislation?",
         "yesno": [
           {
             "name": "Так",
@@ -757,7 +757,7 @@
         "example": "Відповідно до пункту 7.15 розділу 7 Положення про оренду земельних ділянок комунальної власності у м. Івано-Франківську, затвердженого рішенням Івано-Франківської міської ради від 19.06.2014р. №1446-45, орендар зобов'язаний у п'ятиденний строк після державної реєстрації договору оренди землі надати копію договору в державну податкову інспекцію в м. Івано-Франківську. Проте такий обов’язок не передбачений чинним законодавством"
       },
       {
-        "text": "Чи потрібно особисто звертатися до посадовця для подання інформації?",
+        "text": "Do you need to apply in person to an official in order to submit information?",
         "yesno": [
           {
             "name": "Так",
@@ -771,7 +771,7 @@
         "remove": "none"
       },
       {
-        "text": "Чи потрібно проходити попереднє погодження документу, що буде подаватися, наприклад, у інспектора або іншого фахівця?",
+        "text": "Do you need to get the document preliminarily approved, for example,  by an inspector or another expert?",
         "yesno": [
           {
             "name": "Так",
@@ -785,7 +785,7 @@
         "remove": "none"
       },
       {
-        "text": "Чи потрібно отримати підтвердження про подання інформації?",
+        "text": "Do you need to get a confirmation of the information submission?",
         "yesno": [
           {
             "name": "Так",
@@ -799,7 +799,7 @@
         "remove": "none"
       },
       {
-        "text": "Чи визначений відповідний порядок? ",
+        "text": "Is there a definite procedure for this?  ",
         "yesno": [
           {
             "name": "Так",
@@ -814,7 +814,7 @@
         "dep": 1
       },
       {
-        "text": "Чи існує потреба особисто звертатися до посадової особи для такого підтвердження?",
+        "text": "Do you need to apply to an official in order to get the confirmation?",
         "yesno": [
           {
             "name": "Так",
@@ -829,7 +829,7 @@
         "dep2": 1
       },
        {
-        "text": "Чи наявні в рішенні відсилочні норми на положення, яких не існує, які суперечливі, скасовані?",
+        "text": "In the decision, are there any references to non-existent, controversial or repealed provisions? ",
         "yesno": [
           {
             "name": "Так",

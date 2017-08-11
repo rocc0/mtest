@@ -5,18 +5,18 @@
             <div class="dropzone box box-darkblue">
                 <div class='requlatory'>
                         <div class="col-md-12 pull-left input-group">
-                            <div class="input-group-addon" style="width: 176px;padding: 4px;">Назва органу влади</div>
+                            <div class="input-group-addon" style="width: 176px;padding: 4px;">Name of the authority</div>
                             <input type="text" class="form-control" name="subj" ng-model="list[0].subj">
                         </div>
                         <div class="col-md-12 pull-left input-group">
-                            <div class="input-group-addon">Назва регуляторного акта</div>
+                            <div class="input-group-addon">Name of the regulatory act</div>
                             <input type="text" class="form-control" name="regact" ng-model="list[0].regact">
                     </div>
                 </div>
                 <div ng-include="'list.html'" ></div>
                 <div class="sum-footer">
                     <div class="col-md-2 input-group reset">
-                        <button type="button" class="btn btn-danger" ng-click="resetdb()">Очистити форму</button>
+                        <button type="button" class="btn btn-danger" ng-click="resetdb()">Clear the form</button>
                         </div>
                     <div class="col-md-5 input-group">
 
@@ -24,13 +24,12 @@
                             <span class="glyphicon glyphicon-question-sign" aria-hidden="true" popover-placement="top-left" uib-popover="
                             Кількість – кількість суб`єктів малого бізнесу, на яких поширюється регулювання/ІВ. В формулі позначається
                             " popover-trigger="'mouseenter'">
-                        </span> Кількість суб'єктів(шт.):</div>
+                        </span> Number of entities:</div>
                         <input type="number" style="width: 70%;height: 30px;" class="form-control" name="ki"
                                ng-model="list[0].ki" placeholder='Кі (шт.)'>
                     </div>
                     <div class="col-md-5 input-group">
-                        <div style="padding-right: 5px;width: 66%;line-height: 29px;float:right;height: 30px;">Загальна
-                            вартість вимог:</div>
+                        <div style="padding-right: 5px;width: 66%;line-height: 29px;float:right;height: 30px;">Total cost of obligations:</div>
                         <div class='input-group-addon' style="width: 41%;">{[{awgSumDb()}]} грн</div>
                     </div>
                 </div>
@@ -74,7 +73,7 @@
                     <div class="btn1">
                         <a type="button" id='btn-dwn' class="btn btn-default btn-lg" download="Звіт.html" ng-href="{[{ saveToPdf }]}">
                             <span class="glyphicon glyphicon-cloud-download"></span>
-                            <span>Завантажити</span>
+                            <span>Download</span>
                         </a>
                         <toggle ng-model="reportToggler" on="М-ТЕСТ" off="Кор." class="corr_toggle"></toggle>
                     </div>
@@ -83,17 +82,17 @@
                             <button type="submit" id='btn-save' class="btn btn-default  btn-lg" name="Save"
                                     ng-click="m.submitData($event);m.setClasses()">
                                 <span class="glyphicon glyphicon-floppy-disk"></span>
-                                <span class="sm">Зберегти</span>
+                                <span class="sm">Save</span>
                             </button>
                         </form>
                     </div>
                     <div class="save_alert {[{ getClassTwo }]}">
                         <span class="glyphicon glyphicon-ok-circle"></span>
-                        <span class="sm">Збережено!</span>
+                        <span class="sm">Saved!</span>
                     </div>
 
                     <div class="executors" >
-                        <h5>Виконавці:</h5>
+                        <h5>Executors:</h5>
                         <div ng-repeat="item in modelsdb.dropzones['1'][0].executors" class="execs">
                             <div class="checkbox">
                                 <label><input type="checkbox" value="checked" ng-model="item[2]" ng-click="m
@@ -108,7 +107,7 @@
                                     ng-click="m
                                 .submitData($event);reloadRoute()">
 
-                                <span class="sm">Перерахувати</span>
+                                <span class="sm">Recalculate</span>
                             </button>
                     </div>
                 </div>
@@ -131,7 +130,7 @@
             id="{[{ item.type }]}"
             >
         </li>
-        <li class="dndPlaceholder">Перетягніть сюди</li>
+        <li class="dndPlaceholder">Drop here</li>
     </ul>
 </script>
 
@@ -151,7 +150,7 @@
             id="{[{ item.type }]}"
             >
         </li>
-        <li class="dndPlaceholder">Перетягніть сюди</li>
+        <li class="dndPlaceholder">Drop here</li>
     </ul>
 </script>
 
@@ -171,7 +170,7 @@
             id="{[{ item.type }]}"
             >
         </li>
-        <li class="dndPlaceholder">Перетягніть сюди</li>
+        <li class="dndPlaceholder">Drop here</li>
     </ul>
 </script>
                                                                             <!--  CONTAINER  -->
@@ -195,7 +194,7 @@
                     <input  class="form-control"
                             ng-model="item.zob"
                             name="zob"
-                            placeholder="Введіть назву інформаційної вимоги"
+                            placeholder="Enter the name of the information obligation"
                             typeahead-min-length="0"
                             style="width: 96%;">
                     <a class="clear" ng-click="item.zob = null">
@@ -203,7 +202,7 @@
                 </a>
                 </div>
                 <div class="input-group-addon container-header"
-                     ng-model="item.subS">Вартість вимоги: {[{ sumDevsInfs(devs_get[$index]) | number:0}]} грн</div>
+                     ng-model="item.subS">The cost of the obligation: {[{ sumDevsInfs(devs_get[$index]) | number:0}]} грн</div>
                 <div style="display:none;">{[{ item.contsub = SumDb(item.id)[item.id] }]}</div>
                 <div style="display:none;">{[{ item.awgsub = sumDevsInfs(devs_get[$index]) }]}</div>
             </div>
