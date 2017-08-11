@@ -1,0 +1,5 @@
+*.retry
+.DS_Store
+src/db.sqlite3
+src/db.json
+src/mtest_app/settings.py

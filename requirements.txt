@@ -1,0 +1,6 @@
+Django
+psycopg2
+django-bulk-admin
+wkhtmltopdf
+pdfkit 
+gunicorn
