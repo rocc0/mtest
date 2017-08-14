@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-md-5 input-group">
                         <div style="padding-right: 5px;width: 66%;line-height: 29px;float:right;height: 30px;">Total cost of obligations:</div>
-                        <div class='input-group-addon' style="width: 41%;">{[{m.totalSum()}]} грн</div>
+                        <div class='input-group-addon' style="width: 41%;">{[{m.totalSum()}]} UAH</div>
                     </div>
                 </div>
             </div>
@@ -170,7 +170,7 @@
                            aria-hidden="true"
                            ng-click="openModal('col-sm-9','static/tmpl/tmpl/InfReq.html','mTestController')">
                      </span>
-                    Інформаційна вимога:</div>
+                    Inform. obligation:</div>
                     <input  class="form-control"
                             ng-model="item.zob"
                             name="zob"
@@ -204,7 +204,7 @@
                       aria-hidden="true"
                       ng-click="openModal('col-sm-9','static/tmpl/tmpl/ReqPart.html','mTestController')">
                 </span>
-                Складова інформаційної вимоги:</div>
+                Constituent of inform. obl.:</div>
                 <input  class="form-control ng-valid ng-dirty"
                         ng-model="item.zob" name="zob"
                         placeholder="Введіть назву складової"
