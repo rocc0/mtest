@@ -4,7 +4,7 @@ node {
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
-        git https://github.com/rocc0/mtest
+        git 'https://github.com/rocc0/mtest'
 
     }
 
