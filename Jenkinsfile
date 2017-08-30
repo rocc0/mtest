@@ -12,7 +12,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.Image.run("library/hello-world")
+        app = docker.image("library/hello-world")
     }
 
     stage('Test image') {
