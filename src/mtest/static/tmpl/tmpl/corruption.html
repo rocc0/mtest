@@ -64,8 +64,7 @@
                       ng-disabled="quest.dep == 1 && item.adq.quests[$index - 1].res == 0"
                       ng-change="item.resarr[$index] = addToSlider(quest.res,quest.effect);
                       item.total = corr_sum(item.resarr)">
-                  <option >Yes</option>
-                  <option >No</option>
+                    <option ng-repeat="yn in quest.yesno" value='{[{ yn.value }]}'>{[{yn.name}]}</option>
                   <option  value='idk'>Don't know/Not used.</option>
               </select>
             </div>
